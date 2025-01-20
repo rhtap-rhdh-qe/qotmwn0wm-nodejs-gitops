@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: qotmwn0wm-nodejs
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: qotmwn0wm-nodejs 
+  name: qotmwn0wm-nodejs
+spec:
+  port:
+    targetPort: 3001 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: qotmwn0wm-nodejs
+    weight: 100 
